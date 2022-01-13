@@ -17,7 +17,43 @@ colcon build
 ```
 까지 진행해 놓은 상태이며 도커 실행 하면 기본으로 `source /opt/ros/foxy/install/setup.bash` 셋팅 되어 있습니다.
 
+
+|tested||
+|:---:|:---:|
+|Jetson Nano|OK|
+|Jetson Xavier NX|OK|
+
+
 ## How We Start
+
+
+### docker setting
+
+먼저 도커를 설정합니다.
+
+```bash
+#docker setting
+sudo gedit /etc/docker/daemon.json
+```
+
+`"default-runtime": "nvidia"` 을 추가해줍니다.
+
+```
+{
+    "runtimes": {
+        "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    },
+
+    "default-runtime": "nvidia"
+}
+```
+
+### repo setting
+
+이제 레포를 다운 받습니다.
 
 ```
 git clone https://github.com/its-robotics-ai/ros2_docker

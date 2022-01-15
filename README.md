@@ -1,9 +1,10 @@
 # ros2_docker
 
-* Jetson
+* Jetson Board
 * ROS2 Foxy
-* R32.6.1
-* `dustynv/ros:foxy-ros-base-l4t-r32.6.1`
+* Jetpack 4.6
+* L4T 32.6.1
+* Docker base on : `dustynv/ros:foxy-ros-base-l4t-r32.6.1`
 
 기본적으로 `root` 에서
 

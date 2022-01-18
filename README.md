@@ -1,21 +1,39 @@
-# ros2_docker
+index
+1. ros2_docker on Desktop
+2. ros2_docker on Jetson
 
-* Jetson
-* ROS2 Foxy
-* R32.6.1
-* `dustynv/ros:foxy-ros-base-l4t-r32.6.1`
+---
 
-기본적으로 `root` 에서
+
+
+
+# ros2_docker on Desktop
+
+* desktop PC
+* ROS2 `Foxy`
+* `osrf/ros:foxy-desktop`
+
+
+|tested||
+|:---:|:---:|
+|Ubuntu18.04|OK|
+|Windows|not yet|
+|MAC|not yet|
+
 
 ```bash
-mkdir -p ~/dev_ws/src
-cd ~/dev_ws/src/
-git clone -b foxy-devel https://github.com/ros/ros_tutorials.git
-cd ..
-rosdep install -i --from-path src --rosdistro foxy -y
-colcon build
+docker run -it --rm --network host osrf/ros:foxy-desktop bash
 ```
-까지 진행해 놓은 상태이며 도커 실행 하면 기본으로 `source /opt/ros/foxy/install/setup.bash` 셋팅 되어 있습니다.
+>참고 runtime 및 display 설정은 아직 안했음
+
+
+
+# ros2_docker on Jetson
+
+* Jetson Board
+* ROS2 `Foxy`
+* `L4T 32.6.1`
+* `dustynv/ros:foxy-ros-base-l4t-r32.6.1`
 
 
 |tested||

@@ -3,7 +3,7 @@
 
 # https://github.com/dusty-nv/jetson-containers
 
-CONTAINER_IMAGE="preice/nw_ros2_init:0.3"
+CONTAINER_IMAGE="preice/nw_ros2_init:0.3.2"
 
 USER_VOLUME=""
 USER_COMMAND=""

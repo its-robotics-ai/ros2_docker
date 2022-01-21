@@ -4,7 +4,7 @@
 # https://github.com/dusty-nv/jetson-containers
 
 
-CONTAINER_IMAGE="preice/nw_ros2_init:0.3.2"
+CONTAINER_IMAGE="preice/nw_ros2_init:0.3.22"
 
 USER_VOLUME=""
 USER_COMMAND=""
@@ -20,6 +20,11 @@ chmod 777 $XAUTH
 
 # run the container
 sudo docker run --runtime nvidia -it --rm --network host -e DISPLAY=$DISPLAY \
-    -v /tmp/.X11-unix/:/tmp/.X11-unix \
-    -v $XAUTH:$XAUTH -e XAUTHORITY=$XAUTH \
-    $USER_VOLUME $CONTAINER_IMAGE $USER_COMMAND
+	--device=/dev/ttyUSB0 \
+	-v /tmp/.X11-unix/:/tmp/.X11-unix \
+	-v /usr/lib/aarch64-linux-gnu:/usr/lib/aarch64-linux-gnu \
+	-v $XAUTH:$XAUTH -e XAUTHORITY=$XAUTH \
+	$USER_VOLUME $CONTAINER_IMAGE $USER_COMMAND
+
+
+#preice/nw_ros2_init:0.3.21
